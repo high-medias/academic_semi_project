@@ -12,7 +12,5 @@ public class Application {
 		
 		mv.mainViews();
 		
-		System.out.println("test");
-		
 	}
 }
