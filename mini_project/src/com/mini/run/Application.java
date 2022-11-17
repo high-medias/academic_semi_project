@@ -13,6 +13,6 @@ public class Application {
 		mv.mainViews();
 		
 		System.out.println("testestest");
-		System.out.println("강나연1");
+		System.out.println("강나연");
 	}
 }
