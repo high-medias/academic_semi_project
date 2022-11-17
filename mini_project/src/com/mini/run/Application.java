@@ -13,5 +13,6 @@ public class Application {
 		mv.mainViews();
 		
 		System.out.println("testestest");
+		System.out.println("강나연");
 	}
 }
