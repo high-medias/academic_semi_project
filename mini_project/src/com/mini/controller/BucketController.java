@@ -1,6 +1,5 @@
 package com.mini.controller;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.mini.dto.MemberDTO;
@@ -10,10 +9,6 @@ public class BucketController {
 
 	Scanner sc = new Scanner(System.in);
 	MemberDTO mem = new MemberDTO();
-
-	public ArrayList<ProductDTO> getsList(MemberDTO mem) {
-		return mem.getbList();
-	}
 	
 	public void deleteProduct(MemberDTO mem, int bSize) {
 		int deletenum;
@@ -35,18 +30,7 @@ public class BucketController {
 			sc.nextLine();
 		}
 		
-		mem.getbList().remove(deletenum);
 		System.out.println();
 		System.out.println();
-	}
-	
-
-	public void removeProductAll(MemberDTO mem) {
-		mem.getbList().clear();
-	}
-	
-	
-	public int getsListcount(MemberDTO mem) {
-		return mem.getbList().size();
 	}
 }

@@ -1,42 +1,36 @@
 package com.mini.dto;
 
+import java.util.Date;
+
 public class ProductDTO {
 
-	int price;
+	String no;
 	String name;
 	String category;
-	double discount;
-	boolean isFree;
-	boolean isCoupon;
-	int numProduct;
-	
-	public void inquiry() {
-		
-		System.out.println(this.toString());
-	}
+	int price;
+	int count;
+	Date registDate;
+	String memNo;
 	
 	public ProductDTO() {}
 	
-	
-	public ProductDTO(int price, String name, String category, double discount) {
+	public ProductDTO(String no, String name, String category, int price, int count, Date registDate, String memNo) {
 		super();
-		this.price = price;
+		this.no = no;
 		this.name = name;
 		this.category = category;
-		this.discount = discount;
+		this.price = price;
+		this.count = count;
+		this.registDate = registDate;
+		this.memNo = memNo;
 	}
 
+	public String getNo() {
+		return no;
+	}
 
-	public ProductDTO(int price, String name, String category, double discount, boolean isFree, boolean isCoupon,
-			int numProduct) {
-		super();
-		this.price = price;
-		this.name = name;
-		this.category = category;
-		this.discount = discount;
-		this.isFree = isFree;
-		this.isCoupon = isCoupon;
-		this.numProduct = numProduct;
+	public void setNo(String no) {
+		this.no = no;
 	}
 
 	public String getName() {
@@ -47,16 +41,56 @@ public class ProductDTO {
 		this.name = name;
 	}
 
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public Date getRegistDate() {
+		return registDate;
+	}
+
+	public void setRegistDate(Date registDate) {
+		this.registDate = registDate;
+	}
+
+	public String getMemNo() {
+		return memNo;
+	}
+
+	public void setMemNo(String memNo) {
+		this.memNo = memNo;
+	}
+
 	@Override
 	public String toString() {
-		return "상품 : ** price : " + price 
-				+ ", name : " + name 
-				+ ", category : " + category 
-				+ ", discount :" + discount
-				+ "**";
+		return "ProductDTO [no=" + no
+				+ ", name=" + name
+				+ ", category=" + category
+				+ ", price=" + price
+				+ ", count=" + count
+				+ ", registDate=" + registDate
+				+ ", memNo=" + memNo + "]";
 	}
-	
-	
 	
 	
 

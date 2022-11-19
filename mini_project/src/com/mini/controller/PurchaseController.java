@@ -14,9 +14,11 @@ public class PurchaseController {
 		public MemberDTO maskPurchase(MemberDTO mem, int num) {
 			
 			switch(num) {
+			/*
 				case 1 : mem.addpList( new ProductDTO(10000,"시트팩","마스크팩",0.0)); break;
 				case 2 : mem.addpList( new ProductDTO(5000,"코팩","마스크팩",0.0)); break;
 				case 3 : mem.addpList( new ProductDTO(20000,"워시오프팩","마스크팩",0.05)); break;
+				*/
 			}
 			
 			System.out.println("\n =========================== ");
@@ -31,9 +33,11 @@ public class PurchaseController {
 			
 			
 			switch(num) {
+			/*
 			case 1 : mem.addbList(new ProductDTO(10000,"시트팩","마스크팩",0.0)); break;
 			case 2 : mem.addbList(new ProductDTO(5000,"코팩","마스크팩",0.0)); break;
 			case 3 : mem.addbList(new ProductDTO(20000,"워시오프팩","마스크팩",0.05)); break;
+			*/
 			}
 			
 			System.out.println("\n =========================== ");
@@ -49,9 +53,11 @@ public class PurchaseController {
 		public MemberDTO cleansingPurchase(MemberDTO mem, int num) {
 					
 			switch(num) {
+			/*
 				case 1 : mem.addpList( new ProductDTO(15000,"폼","클렌징",0.1) ); break;
 				case 2 : mem.addpList( new ProductDTO(12000,"젤","클렌징",0.0) ); break;
 				case 3 : mem.addpList( new ProductDTO(13000,"오일","클렌징",0.0) ); break;
+				*/
 			}
 			
 			System.out.println("\n =========================== ");
@@ -65,9 +71,11 @@ public class PurchaseController {
 			
 			
 			switch(num) {
+			/*
 				case 1 : mem.addbList( new ProductDTO(15000,"폼","클렌징",0.1) ); break;
 				case 2 : mem.addbList( new ProductDTO(12000,"젤","클렌징",0.0) ); break;
 				case 3 : mem.addbList( new ProductDTO(13000,"오일","클렌징",0.0) ); break;
+				*/
 		}
 			
 			System.out.println("\n =========================== ");

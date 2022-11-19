@@ -86,7 +86,7 @@ public class LoginView {
 							System.out.println("  ===================== ");
 							System.out.println();
 							
-							mem = new MemberDTO( members.get(id) , "test", 35);
+							// mem = new MemberDTO( members.get(id) , "test", 35);
 							
 							break;
 						}

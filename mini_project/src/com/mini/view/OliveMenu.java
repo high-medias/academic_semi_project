@@ -39,23 +39,11 @@ public class OliveMenu {
 			System.out.println();
 			
 			switch(num) {
-			case 1:
-				this.mem = pV.purchaseMainView(mem);
-				break;
-			case 2:
-				bV.BucketMainView(mem);
-				break;
-			case 3:
-				ClearScreen.ClearConsole();
-				pV.printAllLists(mem);
-				System.out.println();
-				System.out.println();
-				//inquireBList();
-				break;
-			case 4:
-				break;
-			case 5:
-				break;
+			case 1: break;
+			case 2: break;
+			case 3: break;
+			case 4: break;
+			case 5: break;
 			case 0:
 				ClearScreen.ClearConsole();
 				System.out.println(" ================ ");
@@ -68,13 +56,6 @@ public class OliveMenu {
 		}while(num != 0);
 		
 		return flag;
-	}
-	
-	
-	public void inquireBList() {
-		for(ProductDTO tmp : mem.getpList()) {
-			System.out.println(tmp.getName());
-		}
 	}
 	
 }

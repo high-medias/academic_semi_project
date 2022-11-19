@@ -1,46 +1,41 @@
 package com.mini.dto;
 
 import java.util.ArrayList;
+import java.util.Date;
 
+// 직원 Table과 연동 //
+// 		고객이 아님! //
 public class MemberDTO {
-
-	private String id;
-	private String name;
-	private String address;
-	private char gender;
-	private int cMount;
-	private int age;
 	
-	private ArrayList<ProductDTO> pList = new ArrayList<ProductDTO>(); // 구매 내역
-	private ArrayList<ProductDTO> bList = new ArrayList<ProductDTO>(); // 장바구니 내역
+	String no;
+	String name;
+	int age;
+	String gender;
+	String position;
+	Date hireDate;
+	String managerNo;
 	
-	public MemberDTO() {
+	public MemberDTO() {}
 	
-	}
-
-	public MemberDTO(String id, String name, int age, String address, char gender, int cMount) {
+	public MemberDTO(String no, String name, int age, 
+			String gender, String position, Date hireDate, 
+			String managerNo) {
 		super();
-		this.id = id;
+		this.no = no;
 		this.name = name;
 		this.age = age;
-		this.address = address;
 		this.gender = gender;
-		this.cMount = cMount;
-	}
-	
-	public MemberDTO(String id, String name, int age) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.age = age;
+		this.position = position;
+		this.hireDate = hireDate;
+		this.managerNo = managerNo;
 	}
 
-	public String getId() {
-		return id;
+	public String getNo() {
+		return no;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setNo(String no) {
+		this.no = no;
 	}
 
 	public String getName() {
@@ -59,52 +54,49 @@ public class MemberDTO {
 		this.age = age;
 	}
 
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public char getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(char gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
+	public Date getHireDate() {
+		return hireDate;
+	}
+
+	public void setHireDate(Date hireDate) {
+		this.hireDate = hireDate;
+	}
+
+	public String getManagerNo() {
+		return managerNo;
+	}
+
+	public void setManagerNo(String managerNo) {
+		this.managerNo = managerNo;
+	}
+
+	@Override
+	public String toString() {
+		return "MemberDTO [no=" + no 
+				+ ", name=" + name
+				+ ", age=" + age
+				+ ", gender=" + gender
+				+ ", position=" + position 
+				+ ", hireDate=" + hireDate
+				+ ", managerNo=" + managerNo + "]";
+	}
 	
-	public int getcMount() {
-		return cMount;
-	}
-
-	public void setcMount(int cMount) {
-		this.cMount = cMount;
-	}
-	
-	public void getInfo() {
-		
-		System.out.print("id : " + id + ", name : " + name + ", age : "  + age + 
-				          ", address : " + address + ", gender : " + gender);
-	}
-
-	public ArrayList<ProductDTO> getpList() {
-		return pList;
-	}
-
-	public void addpList(ProductDTO product) {
-		this.pList.add(product);
-	}
-
-	public ArrayList<ProductDTO> getbList() {
-		return bList;
-	}
-
-	public void addbList(ProductDTO product) {
-		this.bList.add(product);
-	}
 	
 	
 	

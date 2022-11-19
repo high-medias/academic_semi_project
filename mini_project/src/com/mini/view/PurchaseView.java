@@ -41,16 +41,9 @@ public class PurchaseView {
 			System.out.println();
 			
 			switch(menu) {
-			case 1: 
-				ClearScreen.ClearConsole();
-				this.mem = this.maskPackView(mem);
-				break;
-			case 2: 
-				ClearScreen.ClearConsole();
-				this.mem = this.cleansingFoamView(mem);
-				break;
-			default :
-				
+				case 1: break;
+				case 2: break;
+				default :
 			}
 		} while(menu != 0);
 
@@ -112,16 +105,9 @@ public class PurchaseView {
 			System.out.println();
 			
 			switch(menu) {
-				case 1: 
-					ClearScreen.ClearConsole();
-					this.mem = pC.maskPurchase(mem, num);
-					break;
-				case 2: 
-					ClearScreen.ClearConsole();
-					this.mem = pC.maskShoppingList(mem, num);
-					break;
-				case 3: 
-					break;
+				case 1: break;
+				case 2: break;
+				case 3: break;
 			}
 		} while(menu != 0 );
 		
@@ -184,16 +170,9 @@ public class PurchaseView {
 			
 			// @#$@#$ 여기 시작하
 			switch(menu) {
-			case 1: 
-				ClearScreen.ClearConsole();
-				this.mem = pC.cleansingPurchase(mem, num);
-				break;
-			case 2: 
-				ClearScreen.ClearConsole();
-				this.mem = pC.cleansingShoppingList(mem, num);
-				break;
-			case 3: 
-				break;
+			case 1: break;
+			case 2: break;
+			case 3: break;
 			}
 			
 		} while(menu != 0);	
@@ -203,7 +182,7 @@ public class PurchaseView {
 	}
 	
 	public void printAllLists(MemberDTO mem) {
-		
+		/*
 		System.out.println("구매하신 목록입니다.");
 		
 		int size = mem.getpList().size();
@@ -212,9 +191,8 @@ public class PurchaseView {
 			
 			System.out.println(mem.getpList().get(i));
 			
-		}
+		}*/
 		
 	}
-	
 	
 }
