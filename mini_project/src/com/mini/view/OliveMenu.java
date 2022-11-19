@@ -27,7 +27,7 @@ public class OliveMenu {
 			System.out.println("1. 물품 보기 ");
 			System.out.println("2. 장바구니 조회");
 			System.out.println("3. 구매목록 조회");
-			System.out.println("4. 탈퇴");
+			System.out.println("9. 탈퇴");
 			System.out.println("0. 프로그램 종료");
 			System.out.println(" =========================== \n");
 			
