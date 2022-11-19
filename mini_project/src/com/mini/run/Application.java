@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.mini.dto.MemberDTO;
 import com.mini.dto.ProductDTO;
-import com.mini.dto.customerDTO;
+import com.mini.dto.CustomerDTO;
 import com.mini.view.OliveMenu;
 import com.mini.view.mainView;
 

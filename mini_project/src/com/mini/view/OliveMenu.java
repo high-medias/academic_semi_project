@@ -2,6 +2,7 @@ package com.mini.view;
 
 import java.util.Scanner;
 
+import com.mini.controller.CustomerController;
 import com.mini.dto.MemberDTO;
 import com.mini.dto.ProductDTO;
 
@@ -12,6 +13,7 @@ public class OliveMenu {
 	
 	BucketView bV = new BucketView();
 	PurchaseView pV = new PurchaseView();
+	CustomerController cC = new CustomerController();
 	
 	private int num;
 	private int flag; // --> flag = 0 : 종료 --> memeber로 변경 예정
@@ -27,6 +29,7 @@ public class OliveMenu {
 			System.out.println("1. 물품 보기 ");
 			System.out.println("2. 장바구니 조회");
 			System.out.println("3. 구매목록 조회");
+			System.out.println("8. 회원 조회");
 			System.out.println("9. 탈퇴");
 			System.out.println("0. 프로그램 종료");
 			System.out.println(" =========================== \n");
@@ -44,6 +47,7 @@ public class OliveMenu {
 			case 3: break;
 			case 4: break;
 			case 5: break;
+			case 8: cC.selectCustomer(); break;
 			case 0:
 				ClearScreen.ClearConsole();
 				System.out.println(" ================ ");

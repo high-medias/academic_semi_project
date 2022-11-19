@@ -1,6 +1,6 @@
 package com.mini.dto;
 
-public class customerDTO {
+public class CustomerDTO {
 	
 	String id;
 	String pwd;
@@ -9,9 +9,9 @@ public class customerDTO {
 	String phoneNumber;
 	String grade;
 	
-	public customerDTO() {}
+	public CustomerDTO() {}
 	
-	public customerDTO(String id, String pwd, String name, String gender, String phoneNumber, String grade) {
+	public CustomerDTO(String id, String pwd, String name, String gender, String phoneNumber, String grade) {
 		super();
 		this.id = id;
 		this.pwd = pwd;
