@@ -2,9 +2,9 @@ package com.mini.view;
 import java.util.Scanner;
 
 import com.mini.controller.BucketController;
+import com.mini.dto.CustomerDTO;
 import com.mini.dto.MemberDTO;
 
- 
 
 public class BucketView {
 	
@@ -12,14 +12,13 @@ public class BucketView {
 	Scanner sc = new Scanner(System.in);
 	BucketController bC = new BucketController();
 
-	public void BucketMainView(MemberDTO mem) {
-		int bucketSize;
+	public void BucketMainView(CustomerDTO cus) {
 		ClearScreen.ClearConsole();
 		
 		do {
 			
 			System.out.println(" ========= 장바구니 메뉴 ======== ");
-			System.out.println("1. 장바구니 가격조회");
+			System.out.println("1. 나의 장바구니 가격조회"); //현재 임시 객체의 member Key "1"
 			System.out.println("2. 장바구니 상품 삭제");
 			System.out.println("3. 장바구니 비우기");
 			System.out.println("0. 메인 메뉴");

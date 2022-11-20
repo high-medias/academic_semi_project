@@ -6,7 +6,7 @@ public class mainView {
 	MemberDTO mem;
 	private int flag;
 	LoginView login = new LoginView();
-	OliveMenu oMenu = new OliveMenu();
+	OliveMemberMenu oMenu = new OliveMemberMenu();
 	
 	public void mainViews() {
 		

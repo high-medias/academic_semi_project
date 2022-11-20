@@ -5,20 +5,21 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.mini.controller.PurchaseController;
+import com.mini.dto.CustomerDTO;
 import com.mini.dto.MemberDTO;
 import com.mini.dto.ProductDTO;
 
 public class PurchaseView {
 	
-	private MemberDTO mem;
+	private CustomerDTO cus;
 	private int menu;
 	
 	Scanner sc = new Scanner(System.in);
 
 	
-	public MemberDTO purchaseMainView(MemberDTO mem) {
+	public void purchaseMainView(CustomerDTO cus) {
 		
-		this.mem = mem;
+		this.cus = cus;
 
 		do 
 		{
@@ -50,7 +51,7 @@ public class PurchaseView {
 		} while(menu != 0);
 
 		ClearScreen.ClearConsole();
-		return mem;
-	}	
+	}
+
 	
 }

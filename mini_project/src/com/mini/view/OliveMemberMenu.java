@@ -6,14 +6,14 @@ import com.mini.controller.CustomerController;
 import com.mini.dto.MemberDTO;
 import com.mini.dto.ProductDTO;
 
-public class OliveMenu {
+public class OliveMemberMenu {
 	
 	MemberDTO mem;
 	private Scanner sc = new Scanner(System.in);
 	
-	BucketView bV = new BucketView();
-	PurchaseView pV = new PurchaseView();
-	CustomerController cC = new CustomerController();
+	BucketView bucketView = new BucketView();
+	PurchaseView purchaseView = new PurchaseView();
+	CustomerController customerController = new CustomerController();
 	
 	private int num;
 	private int flag; // --> flag = 0 : 종료 --> memeber로 변경 예정
@@ -25,12 +25,14 @@ public class OliveMenu {
 		do
 		{
 	        
-			System.out.println(" ====== Olive 메인 메뉴 ======");
-			System.out.println("1. 물품 보기 ");
-			System.out.println("2. 장바구니 조회");
-			System.out.println("3. 구매목록 조회");
-			System.out.println("8. 회원 조회");
-			System.out.println("9. 탈퇴");
+			System.out.println(" ====== Olive 관리자 메인 메뉴 ======");
+			
+			// JS --> 여기 추후 클래스 이동 예정
+			System.out.println("1. 회원가입 및 로그인 메뉴");
+			//MJ
+			System.out.println("2. 고객 메뉴");
+			// KNY --> 추후 클래스 이동 예정
+			System.out.println("3. 회원 관리 메뉴");
 			System.out.println("0. 프로그램 종료");
 			System.out.println(" =========================== \n");
 			
@@ -41,13 +43,16 @@ public class OliveMenu {
 			sc.nextLine();
 			System.out.println();
 			
+			/*
+			 * 
+			 * 각 View에 들어가시면 구현해야할 기능에 대한 내용을 잡아 놓았습니다
+			 * 이해 안되시면 톡주시면 말씀드리겠습니다.
+			 *  고생하십쇼! :)
+			 */
 			switch(num) {
 			case 1: break;
 			case 2: break;
 			case 3: break;
-			case 4: break;
-			case 5: break;
-			case 8: cC.selectCustomer(); break;
 			case 0:
 				ClearScreen.ClearConsole();
 				System.out.println(" ================ ");
