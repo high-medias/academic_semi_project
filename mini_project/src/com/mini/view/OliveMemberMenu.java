@@ -11,12 +11,10 @@ public class OliveMemberMenu {
 	MemberDTO mem;
 	private Scanner sc = new Scanner(System.in);
 	
-	BucketView bucketView = new BucketView();
-	PurchaseView purchaseView = new PurchaseView();
-	CustomerController customerController = new CustomerController();
+	CustomerManaging customerManaging = new CustomerManaging();
+	SignUpView signUpView = new SignUpView();
 	
 	private int num;
-	private int flag; // --> flag = 0 : 종료 --> memeber로 변경 예정
 	
 	public int OliveMainMenu(MemberDTO mem) {
 		
@@ -30,8 +28,8 @@ public class OliveMemberMenu {
 			// JS --> 여기 추후 클래스 이동 예정
 			System.out.println("1. 회원가입 및 로그인 메뉴");
 			//MJ
-			System.out.println("2. 고객 메뉴");
-			// KNY --> 추후 클래스 이동 예정
+			System.out.println("2. 고객 메뉴"); // 여기는 일단 패스!
+			// KNY
 			System.out.println("3. 회원 관리 메뉴");
 			System.out.println("0. 프로그램 종료");
 			System.out.println(" =========================== \n");
@@ -51,20 +49,19 @@ public class OliveMemberMenu {
 			 */
 			switch(num) {
 			case 1: break;
-			case 2: break;
-			case 3: break;
+			case 2: signUpView.singUpMainView(); ;break;
+			case 3: customerManaging.customerManagingMainView(); break;
 			case 0:
 				ClearScreen.ClearConsole();
 				System.out.println(" ================ ");
 				System.out.println("프로그램을 종료합니다.");
 				System.out.println(" ================ ");
-				flag = 0;
 				break;
 			}
 			
 		}while(num != 0);
 		
-		return flag;
+		return 0;
 	}
 	
 }

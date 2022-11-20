@@ -25,12 +25,13 @@ public class PurchaseView {
 		{
 			ClearScreen.ClearConsole();
 			
-			System.out.println(" ====== 올리브영 화장품 카테고리 ====== ");
+			System.out.println(" ====== 물품 구매 및 조회 ====== ");
 			System.out.println();
 			System.out.println(" 1. 전체 물품 조회");
 			System.out.println(" 2. 카테고리로 물품 조회");
 			System.out.println(" 3. 판매직원으로 물품 조회");
 			System.out.println(" 4. 특정 가격 영역으로 조회");
+			System.out.println(" 5. 물품 구매하기");
 			System.out.println();
 			System.out.println(" ---------------------------------");
 			System.out.println(" 0. 이전 메뉴로 돌아가기");
@@ -46,6 +47,9 @@ public class PurchaseView {
 			switch(menu) {
 				case 1: break;
 				case 2: break;
+				case 3: break;
+				case 4: break;
+				case 5: break;
 				default :
 			}
 		} while(menu != 0);

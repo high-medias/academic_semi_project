@@ -14,6 +14,7 @@ public class OliveCustomerMenu {
 	
 	BucketView bucketView = new BucketView();
 	PurchaseView purchaseView = new PurchaseView();
+	ListAndRefund listAndRefund = new ListAndRefund();
 	CustomerController customerController = new CustomerController();
 	
 	private int num;
@@ -28,11 +29,11 @@ public class OliveCustomerMenu {
 	        
 			System.out.println(" ====== Olive 고객 메인 메뉴 ======");
 			// HS
-			System.out.println("1. 물품 메뉴 ");
+			System.out.println("1. 물품 구매 및 조회");
 			// EJ
 			System.out.println("2. 장바구니 메뉴");
 			// JE
-			System.out.println("3. 구매목록 메뉴");
+			System.out.println("3. 나의 구매목록 / 환불 관련 메뉴");
 			System.out.println("0. 프로그램 종료");
 			System.out.println(" =========================== \n");
 			
@@ -49,25 +50,25 @@ public class OliveCustomerMenu {
 			 * 이해 안되시면 톡주시면 말씀드리겠습니다.
 			 *  고생하십쇼! :)
 			 */
-			switch(num) {
-			// HS
-			case 1: purchaseView.purchaseMainView(cus); break;
-			// EJ
-			case 2: bucketView.BucketMainView(cus); ;break;
-			case 3: break;
-			case 8: customerController.selectCustomer(); break;
-			case 0:
-				ClearScreen.ClearConsole();
-				System.out.println(" ================ ");
-				System.out.println("프로그램을 종료합니다.");
-				System.out.println(" ================ ");
-				flag = 0;
-				break;
+				switch(num) {
+				// HS
+				case 1: purchaseView.purchaseMainView(cus); break;
+				// EJ
+				case 2: bucketView.BucketMainView(cus); ;break;
+				// JE
+				case 3: listAndRefund.ListAndRefundMainView(cus); break;
+				case 0:
+					ClearScreen.ClearConsole();
+					System.out.println(" ================ ");
+					System.out.println("프로그램을 종료합니다.");
+					System.out.println(" ================ ");
+					flag = 0;
+					break;
 			}
 			
 		}while(num != 0);
 		
-		return flag;
+		return 0;
 	}
 	
 }
