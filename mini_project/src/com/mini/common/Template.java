@@ -18,7 +18,7 @@ public class Template {
 		
 		if (sqlSessionFactory == null) {
 			
-			String resource = "com/mini/common/mybatis-config.xml";
+			String resource = "mybatis-config.xml";
 			
 			try {
 				

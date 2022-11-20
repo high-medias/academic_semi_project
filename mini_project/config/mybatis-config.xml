@@ -10,15 +10,15 @@
   		<environment id="dev">
   			<transactionManager type="JDBC"/>
   			<dataSource type = "POOLED">
-  				<property name = "drive" value="${driver}"/>
+  				<property name = "driver" value="${driver}"/>
   				<property name = "url" value = "{$url}"/>
-  				<property name = "user" value = "{$user}"/>
+  				<property name = "username" value = "{$user}"/>
   				<property name = "password" value = "{$password}"/>	
   			</dataSource>
   		</environment>
   	</environments>
   	
   	<mappers>
-  		<mapper resource="customerMapper.xml"/>
+  		<mapper resource="com/mini/common/customerMapper.xml"/>
   	</mappers>
   </configuration>
