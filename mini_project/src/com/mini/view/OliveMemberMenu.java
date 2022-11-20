@@ -11,6 +11,8 @@ public class OliveMemberMenu {
 	MemberDTO mem;
 	private Scanner sc = new Scanner(System.in);
 	
+	CustomerController customerController = new CustomerController();
+	
 	CustomerManaging customerManaging = new CustomerManaging();
 	SignUpView signUpView = new SignUpView();
 	
@@ -51,6 +53,7 @@ public class OliveMemberMenu {
 			case 1: break;
 			case 2: signUpView.singUpMainView(); ;break;
 			case 3: customerManaging.customerManagingMainView(); break;
+			case 4: customerController.selectCustomer();; break;
 			case 0:
 				ClearScreen.ClearConsole();
 				System.out.println(" ================ ");

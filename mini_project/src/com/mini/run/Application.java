@@ -33,7 +33,7 @@ public class Application {
 		
 		/* @@@@@ JS, KNY, MJ @@@@@ */
 		MemberDTO mem = new MemberDTO("1", "김을옹", 26, "F", "대리", new Date(), null);
-		// oliveMemberMenu.OliveMainMenu(mem);
+		oliveMemberMenu.OliveMainMenu(mem);
 		
 		
 		// test 용 CustomerDTO olive Menu //고객
