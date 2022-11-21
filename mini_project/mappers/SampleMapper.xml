@@ -4,11 +4,77 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="SampleMapper.xml">
-
+	
 	<select id="SampleDate" resultType = "java.util.Date">
 		Select
 			Sysdate
 		From dual
 	</select>
+	
+	<!-- 일단은 테이블 구성 명칭을 몰라 생각나는대로 컬럼명을 넣었습니다. (수정 할 것) -->
+	
+	<resultMap type="com.greedy.mini.dto.ProductDTO" id="productResultMap">
+    	<id property="no" column="PRO_CODE"/>
+    	<result property="name" column="PRO_NAME"/>
+    	<result property="category" column="PRO_CATEGORY"/>
+    	<result property="price" column="PRO_PRICE"/>
+    	<result property="count" column="PRO_COUNT"/>
+    	<result property="registDate" column="PRO_REGIS"/>
+    	<result property="memNo" column="PRO_MEMNO"/>
+    </resultMap>
+    
+    <select id="selectAllMenu" resultMap="productResultMap">
+        SELECT
+               P.PRO_CODE
+             , P.PRO_NAME
+             , P.PRO_PRICE
+             , P.PRO_COUNT
+             , P.PRO_REGIS
+             , P.PRO_MEMNO
+          FROM MINI_MENU P
+         ORDER BY P.PRO_CODE       
+    </select>
+    <!-- 고객이 아닌 직원이 메뉴를 조회하는 것이기에 상품 수량이 0이여도 조회 할 수 있게 WHERE
+    조건절은 뺐습니다. -->
+    
+    <insert id="insertMenu" parameterType="com.greedy.mini.dto.ProductDTO">
+        INSERT
+          INTO MINI_MENU P
+          (
+           P.PRO_MEMNO
+         , P.PRO_CODE
+         , P.PRO_NAME
+         , P.PRO_CATEGORY
+         , P.PRO_PRICE
+         , P.PRO_COUNT  
+          )
+          VALUES
+          (
+            #{ memNo }
+          , #{ no }    
+          , #{ name }    
+          , #{ category }    
+          , #{ price }    
+          , #{ count }    
+          )
+    </insert>
+
+	<update id="modifyMenu" parameterType="com.greedy.mini.dto.ProductDTO">
+  		UPDATE
+  		       MINI_MENU P
+  		   SET P.PRO_MEMNO = #{ memNo }
+  		     , P.PRO_NAME = #{ name }
+  		     , P.PRO_PRICE = #{ price }
+  		     , P.PRO_CATEGORY = #{ category }
+  		 WHERE P.PRO_CODE = #{ no }
+  	</update>
+
+	<delete id="deleteProduct" parameterType="_int">
+  		DELETE
+  		  FROM MINI_MENU P
+  		 WHERE P.PRO_CODE = #{ no }
+  	</delete>
+
+	
 	
 </mapper>
