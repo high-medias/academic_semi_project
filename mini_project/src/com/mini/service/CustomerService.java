@@ -21,4 +21,28 @@ public class CustomerService {
 		return cusList;
 	}
 
+
+	public boolean insertCustomer(CustomerDTO cusList) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		int result = customerDAO.insertCustomer(sqlSession, cusList);
+		
+        if(result > 0) {
+			
+			sqlSession.commit();
+		
+        } else {
+			
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result > 0? true: false;
+	
+		
+		
+	}
+
 }

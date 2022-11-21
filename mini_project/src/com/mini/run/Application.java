@@ -11,6 +11,7 @@ import com.mini.dto.ProductDTO;
 import com.mini.dto.CustomerDTO;
 import com.mini.view.OliveCustomerMenu;
 import com.mini.view.OliveMemberMenu;
+import com.mini.view.SignUpView;
 import com.mini.view.mainView;
 
 public class Application {
@@ -23,7 +24,7 @@ public class Application {
 		
 		OliveMemberMenu oliveMemberMenu = new OliveMemberMenu();
 		OliveCustomerMenu oliveCustomerMenu = new OliveCustomerMenu();
-		
+		new SignUpView().singUpMainView();
 		
 		// Mybatis Sample code 입니다
 		// Service 객체에서 아래와 같이 사용하시면 됩니다

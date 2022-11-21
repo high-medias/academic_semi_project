@@ -13,4 +13,9 @@ public class CustomerDAO {
 		return sqlSession.selectList("customerMapper.selectAllMenu");
 	}
 
+	public int insertCustomer(SqlSession sqlSession, CustomerDTO cusList) {
+		
+		return sqlSession.insert("SignUpMapper.insertCustomer", cusList);
+	}
+
 }

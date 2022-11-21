@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="SignUpMapper">
+
+<resultMap type="com.mini.dto.CustomerDTO" id="customerResultMap">
+    	<id property="id" column="CUS_ID"/>
+    	<result property="pwd" column="CUS_PWD"/>
+    	<result property="name" column="CUS_NAME"/>
+    	<result property="gender" column="CUS_GENDER"/>
+    	<result property="phoneNumber" column="CUS_PHONENUMBER"/>
+    	<result property="grade" column="CUS_GRADE"/>
+    </resultMap>
+   <insert id="insertCoustomer" parameterType="_int">
+       INSERT 
+         INTO MINI_CUSTOMER C
+       ( 
+         C.CUS_ID
+       , C.CUS_PWD    
+       , C.CUS_NAME
+       , C.CUS_GENDER
+       , C.CUS_PHONENUMBER
+       , C.CUS_GRADE 
+       )
+       VALUES
+       (
+         SEQ.CUS_ID.NEXTVAL
+       , #{ pwd }
+       , #{ name }
+       , #{ gender }
+       , #{ phoneNumber }
+       ) #{ grade }    
+   </insert>
+   
+ </mapper>  
+
+
