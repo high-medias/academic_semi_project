@@ -1,36 +1,28 @@
 package com.mini.controller;
 
+import java.util.List;
 import java.util.Scanner;
 
+import com.mini.dto.BucketDTO;
 import com.mini.dto.MemberDTO;
-import com.mini.dto.ProductDTO;
+import com.mini.service.BucketService;
 
 public class BucketController {
 
 	Scanner sc = new Scanner(System.in);
 	MemberDTO mem = new MemberDTO();
+	BucketService bucketService = new BucketService();
 	
-	public void deleteProduct(MemberDTO mem, int bSize) {
-		int deletenum;
-		deletenum = sc.nextInt();
-		sc.nextLine();
-		
-		while(deletenum >= bSize) {
-			System.out.println("\n");
-			System.out.println(" ============================ ");
-			System.out.println(" = 입력한 숫자가 잘 못 되었습니다. = ");
-			System.out.println(" =      다시 입력해 주세요.     = ");
-			System.out.println(" ============================ ");
-			System.out.println();
-			
-			System.out.println("  ========================= ");
-			System.out.print(" 삭제하실 상품의 번호를 입력해주세요 : ");
-			
-			deletenum = sc.nextInt();
-			sc.nextLine();
-		}
-		
-		System.out.println();
-		System.out.println();
+	public void deleteProduct(String cus_id, String product_no){
+		bucketService.deleteProduct(cus_id, product_no);
+	}
+
+	public List<BucketDTO> selectBucket(String cus_id) {
+		List<BucketDTO> bucketDTOS = bucketService.selectBucket(cus_id);
+		return bucketDTOS;
+	}
+
+	public void deleteAll(String cus_id) {
+		bucketService.deleteAll(cus_id);
 	}
 }
