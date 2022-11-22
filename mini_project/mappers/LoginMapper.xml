@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="LoginMapper.xml">
+
+	<select id="SampleDate2" resultType = "java.util.Date">
+		Select
+			Sysdate
+		From dual
+	</select>
+	
+	<select id="CallTheIdPwd" parameterType="string" resultType = "com.mini.dto.CustomerDTO">
+		Select
+			A.CUS_ID,
+			A.CUS_PWD
+		From MINI_CUSTOMER A
+		WHERE CUS_ID = #{ID}
+	</select>
+	
+		<select id="CallTheId" parameterType="string" resultType = "string">
+		Select
+			A.CUS_ID
+		From MINI_CUSTOMER A
+		WHERE CUS_ID = #{ID}
+	</select>
+	
+		<select id="CallThePwd" parameterType="string" resultType = "string">
+		Select
+			A.CUS_PWD
+		From MINI_CUSTOMER A
+		WHERE CUS_ID = #{ID}
+	</select>
+	
+</mapper>

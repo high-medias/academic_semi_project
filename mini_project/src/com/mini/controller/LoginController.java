@@ -1,39 +1,33 @@
 package com.mini.controller;
 
 import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
+import org.apache.ibatis.session.SqlSession;
+
+import com.mini.dto.CustomerDTO;
+import com.mini.service.LoginService;
+
 public class LoginController {
 
-	public HashMap<String, String> memberInquiry() {
+	LoginService loginService = new LoginService();
+	
+	public void checkLogin(CustomerDTO customer) {
 		
-		HashMap<String, String> members = new HashMap<>();
+		String id = customer.getId();
+		String pwd = customer.getPwd();
+		
+		if(loginService.checkLogin(id, pwd)) {
+			System.out.println("로그인 성공");
+		} else {
+			System.out.println("로그인 실패");
+		}
 
-		File file = new File("./src/member.txt");
-		
-		try {
-		   BufferedReader br = new BufferedReader(new FileReader(file));
-		   String [] str = br.readLine().split("\\s",0);
-		   
-		   while(str != null) {
-			   members.put(str[0], str[1]);
-			   str = br.readLine().split("\\s");
-		   }
-		   
-		   br.close();
-		   } catch (NullPointerException e){ 
-	           e.getStackTrace();
-	       } catch (FileNotFoundException e){ 
-	           e.getStackTrace();
-	       } catch (IOException e){ 
-	           e.getStackTrace();
-	       }
-		
-	   	return members;
 	}
 	
 }
