@@ -1,5 +1,6 @@
 package com.mini.controller;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,14 +13,22 @@ public class BucketController {
 	Scanner sc = new Scanner(System.in);
 	MemberDTO mem = new MemberDTO();
 	BucketService bucketService = new BucketService();
+
+	public void selectBucket(String cus_id) {
+		List<BucketDTO> bucketDTOS = bucketService.selectBucket(cus_id);
+		bucketDTOS.forEach(System.out::println);
+	}
+	
+	public void BucketTotalPrice(String cus_id) {
+		int result = bucketService.BucketTotalPrice(cus_id);
+		System.out.println("================================");
+		System.out.print(" 장바구니에 담긴 물품의 총 금액 : ");
+		System.out.println( result + " 원");
+		System.out.println("================================");
+	}
 	
 	public void deleteProduct(String cus_id, String product_no){
-		bucketService.deleteProduct(cus_id, product_no);
-	}
-
-	public List<BucketDTO> selectBucket(String cus_id) {
-		List<BucketDTO> bucketDTOS = bucketService.selectBucket(cus_id);
-		return bucketDTOS;
+		bucketService.deleteProduct(product_no);
 	}
 
 	public void deleteAll(String cus_id) {

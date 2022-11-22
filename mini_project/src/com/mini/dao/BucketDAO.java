@@ -14,14 +14,15 @@ public class BucketDAO {
         return selectBucket;
     }
 
-    public void deleteProduct(SqlSession sqlSession, String cus_id, String product_no) {
-        Map<String, String> map = new HashMap<>();
-        map.put("cus_id", cus_id);
-        map.put("product_no", String.valueOf(product_no));
-        sqlSession.delete("DeleteByProductNo",map);
+    public int deleteProduct(SqlSession sqlSession, String product_no) {
+        return sqlSession.delete("DeleteByProductNo", product_no);
     }
 
-    public void deleteAll(SqlSession sqlSession, String cus_id) {
-        sqlSession.delete("DeleteAllBucket", cus_id);
+    public int deleteAll(SqlSession sqlSession, String cus_id) {
+    	return sqlSession.delete("DeleteAllBucket", cus_id);
     }
+
+	public  List<BucketDTO> BucketTotalPrice(SqlSession sqlSession, String cus_id) {
+		return sqlSession.selectList("BucketTotalPrice", cus_id);
+	}
 }

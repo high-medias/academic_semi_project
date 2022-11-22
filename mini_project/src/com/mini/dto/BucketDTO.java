@@ -6,14 +6,33 @@ public class BucketDTO {
     private String cus_id;
     private String product_no;
     private BigDecimal bucket_count;
+    private BigDecimal price;
+    private String bucket_no;
 
-    public BucketDTO(String cus_id, String product_no, BigDecimal bucket_count) {
+    public BucketDTO(String bucket_no, String cus_id, String product_no, BigDecimal bucket_count) {
+    	this.bucket_no = bucket_no;
         this.cus_id = cus_id;
         this.product_no = product_no;
         this.bucket_count = bucket_count;
     }
+    
+    public BucketDTO(String bucket_no, String cus_id, String product_no, BigDecimal bucket_count, BigDecimal price) {
+    	this.bucket_no = bucket_no;
+        this.cus_id = cus_id;
+        this.product_no = product_no;
+        this.bucket_count = bucket_count;
+        this.price = price;
+    }
 
-    public String getCus_id() {
+    public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public String getCus_id() {
         return cus_id;
     }
 
@@ -38,12 +57,13 @@ public class BucketDTO {
         this.bucket_count = bucket_count;
     }
 
-    @Override
-    public String toString() {
-        return "BucketDTO{" +
-                "cus_id='" + cus_id + '\'' +
-                ", product_no='" + product_no + '\'' +
-                ", bucket_count=" + bucket_count +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "BucketDTO [ bucket_no=" + bucket_no
+				+ ", product_no=" + product_no
+				+ ", bucket_count=" + bucket_count
+				+ ", cus_id=" + cus_id + "]";
+	}
+
+
 }

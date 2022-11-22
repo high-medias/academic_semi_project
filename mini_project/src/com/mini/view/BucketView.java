@@ -21,8 +21,6 @@ public class BucketView {
     public void BucketMainView(CustomerDTO cus) {
         ClearScreen.ClearConsole();
 		
-		//현재 임시 객체의 customer의 PK는 CUS_ID이고 값은 "user01"입니다.
-		
 		do {
 			System.out.println(" ========= 장바구니 메뉴 ======== ");
 			System.out.println("1. 나의 장바구니 조회"); 
@@ -39,32 +37,19 @@ public class BucketView {
 			
 			switch(menu) {
             case 1:
-                bucketDTOList = bucketController.selectBucket("user02");
-                bucketDTOList.forEach(System.out::println);
+                bucketController.selectBucket(cus.getId());
                 break;
             case 2:
-                //product
+            	bucketController.BucketTotalPrice(cus.getId());
                 break;
             case 3:
-
-                int count = 0;
-                while(true){
-
-                    System.out.print("삭제할 상품번호를 입력하세요 : ");
-                    String  product_no = sc.next();
-                    for (BucketDTO bucketDTO : bucketDTOList) {
-                        if (bucketDTO.getProduct_no().equals(product_no)) {
-                            count = 1;
-                        }
-                    }
-                    if(count == 1){
-                        bucketController.deleteProduct("user02", product_no);
-                        break;
-                    }
-                }
+            	bucketController.selectBucket(cus.getId());
+                bucketController.deleteProduct(cus.getId(), inputProductName());
+                
+                bucketController.selectBucket(cus.getId());
                 break;
             case 4:
-                bucketController.deleteAll("user02");
+                bucketController.deleteAll(cus.getId());
                 break;
             case 0:
                 break;
@@ -75,6 +60,13 @@ public class BucketView {
 				}
 		}while(menu != 0);
 
+	}
+
+	private String inputProductName() {
+		System.out.println(" ======================================= ");
+		System.out.print("삭제할 장바구니의 번호를 입력하세요 : ");
+        String product_no = sc.nextLine();
+		return product_no;
 	}
 
 }

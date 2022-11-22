@@ -18,13 +18,39 @@ public class BucketService {
         return bucketDTOS;
     }
 
-    public void deleteProduct(String cus_id, String product_no) {
+    public void deleteProduct(String product_no) {
         SqlSession sqlSession = getSqlSession();
-        bucketDAO.deleteProduct(sqlSession, cus_id, product_no);
+        int result = bucketDAO.deleteProduct(sqlSession, product_no);
+        
+        if(result > 0) {
+        	sqlSession.commit();
+        } else {
+        	sqlSession.rollback();
+        }
     }
 
     public void deleteAll(String cus_id) {
         SqlSession sqlSession = getSqlSession();
-        bucketDAO.deleteAll(sqlSession, cus_id);
+        int result = bucketDAO.deleteAll(sqlSession, cus_id);
+        
+        if(result > 0) {
+        	sqlSession.commit();
+        } else {
+        	sqlSession.rollback();
+        }
     }
+
+	public int BucketTotalPrice(String cus_id) {
+		SqlSession sqlSession = getSqlSession();
+		
+		int sum = 0;
+		
+		List<BucketDTO> bucketDTO = bucketDAO.BucketTotalPrice(sqlSession, cus_id);
+		
+		for(BucketDTO bucket : bucketDTO){
+			sum += bucket.getPrice().multiply(bucket.getBucket_count()).intValue();
+		}
+		
+		return sum;
+	}
 }

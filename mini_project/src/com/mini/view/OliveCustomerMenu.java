@@ -44,12 +44,6 @@ public class OliveCustomerMenu {
 			sc.nextLine();
 			System.out.println();
 			
-			/*
-			 * 
-			 * 각 View에 들어가시면 구현해야할 기능에 대한 내용을 잡아 놓았습니다
-			 * 이해 안되시면 톡주시면 말씀드리겠습니다.
-			 *  고생하십쇼! :)
-			 */
 				switch(num) {
 				// HS
 				case 1: purchaseView.purchaseMainView(cus); break;
