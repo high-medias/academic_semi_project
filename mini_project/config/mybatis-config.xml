@@ -21,5 +21,6 @@
   	<mappers>
 		<mapper resource = "SampleMapper.xml"/>
 		<mapper resource = "LoginMapper.xml"/>
+		<mapper resource = "BucketMapper.xml"/>
 	</mappers>
   </configuration>

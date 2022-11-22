@@ -21,6 +21,7 @@ public class BucketDTO {
         return product_no;
     }
 
+    /* 소수계산..? */
     public BigDecimal getBucket_count() {
         return bucket_count;
     }
