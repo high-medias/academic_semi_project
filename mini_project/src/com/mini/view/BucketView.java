@@ -1,19 +1,25 @@
 package com.mini.view;
+
+import java.math.BigDecimal;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.mini.controller.BucketController;
+import com.mini.dto.BucketDTO;
 import com.mini.dto.CustomerDTO;
 import com.mini.dto.MemberDTO;
 
 
 public class BucketView {
-	
-	int menu;
-	Scanner sc = new Scanner(System.in);
-	BucketController bC = new BucketController();
 
-	public void BucketMainView(CustomerDTO cus) {
-		ClearScreen.ClearConsole();
+    int menu;
+    Scanner sc = new Scanner(System.in);
+    BucketController bucketController = new BucketController();
+    List<BucketDTO> bucketDTOList = new LinkedList<>();
+
+    public void BucketMainView(CustomerDTO cus) {
+        ClearScreen.ClearConsole();
 		
 		//현재 임시 객체의 customer의 PK는 CUS_ID이고 값은 "user01"입니다.
 		
@@ -32,13 +38,36 @@ public class BucketView {
 			System.out.println();
 			
 			switch(menu) {
+            case 1:
+                bucketDTOList = bucketController.selectBucket("user02");
+                bucketDTOList.forEach(System.out::println);
+                break;
+            case 2:
+                //product
+                break;
+            case 3:
 
-				case 1: break;
-				case 2: break;
-				case 3: break;
-				case 4: break;
-				case 0: break;
-	
+                int count = 0;
+                while(true){
+
+                    System.out.print("삭제할 상품번호를 입력하세요 : ");
+                    String  product_no = sc.next();
+                    for (BucketDTO bucketDTO : bucketDTOList) {
+                        if (bucketDTO.getProduct_no().equals(product_no)) {
+                            count = 1;
+                        }
+                    }
+                    if(count == 1){
+                        bucketController.deleteProduct("user02", product_no);
+                        break;
+                    }
+                }
+                break;
+            case 4:
+                bucketController.deleteAll("user02");
+                break;
+            case 0:
+                break;
 				default: 
 					System.out.println("다시 입력해주세요\n");
 					break;
