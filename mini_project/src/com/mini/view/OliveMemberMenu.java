@@ -33,7 +33,7 @@ public class OliveMemberMenu {
 			System.out.println("2. 상품 관리 메뉴"); // 여기는 일단 패스!
 			// KNY
 			System.out.println("3. 회원 관리 메뉴");
-			System.out.println("0. 프로그램 종료");
+			System.out.println("0. 로그아웃");
 			System.out.println(" =========================== \n");
 			
 			System.out.print("메뉴를 입력하세요 : ");

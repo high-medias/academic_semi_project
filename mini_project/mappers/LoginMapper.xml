@@ -5,13 +5,17 @@
   
 <mapper namespace="LoginMapper.xml">
 
-	<select id="SampleDate2" resultType = "java.util.Date">
-		Select
-			Sysdate
-		From dual
-	</select>
+	<resultMap type="com.mini.dto.CustomerDTO" id="CustomerDTOIdPWD">
+		<id property="id" column="CUS_ID"/>
+		<result property="pwd" column="CUS_PWD"/>
+	</resultMap>
 	
-	<select id="CallTheIdPwd" parameterType="string" resultType = "com.mini.dto.CustomerDTO">
+	<resultMap type="com.mini.dto.MemberDTO" id="MemberDTOIdPWD">
+		<id property="no" column="Mem_No"/>
+		<result property="pwd" column="Mem_PWD"/>
+	</resultMap>
+		
+	<select id="CustomerIdPwd" parameterType="string" resultMap = "CustomerDTOIdPWD">
 		Select
 			A.CUS_ID,
 			A.CUS_PWD
@@ -19,18 +23,11 @@
 		WHERE CUS_ID = #{ID}
 	</select>
 	
-		<select id="CallTheId" parameterType="string" resultType = "string">
+	<select id="MemberIdPwd" parameterType="string" resultMap = "MemberDTOIdPWD">
 		Select
-			A.CUS_ID
-		From MINI_CUSTOMER A
-		WHERE CUS_ID = #{ID}
-	</select>
-	
-		<select id="CallThePwd" parameterType="string" resultType = "string">
-		Select
-			A.CUS_PWD
-		From MINI_CUSTOMER A
-		WHERE CUS_ID = #{ID}
-	</select>
-	
+			A.MEM_NO,
+			A.MEM_PWD
+		From MINI_MEMBER A
+		WHERE MEM_NO = #{ID}
+	</select>	
 </mapper>

@@ -10,18 +10,6 @@ public class mainView {
 	
 	public void mainViews() {
 		
-		//mem = login.loginMain();
-		
-		if(mem == null) {
-			return;
-		}
-		
-		ClearScreen.ClearConsole();
-		
-		do {
-			flag = oMenu.OliveMainMenu(mem);
-			
-		}while(flag != 0);
-		
+		login.loginMain();
 	}
 }
