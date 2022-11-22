@@ -20,6 +20,11 @@ public class CustomerDTO {
 		this.phoneNumber = phoneNumber;
 		this.grade = grade;
 	}
+	
+	public CustomerDTO(String id, String pwd) {
+		this.id = id;
+		this.pwd = pwd;
+	}
 
 	public String getId() {
 		return id;

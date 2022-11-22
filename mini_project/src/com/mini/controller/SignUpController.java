@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class SignUpController {
 	
 	LoginController lC = new LoginController();
-	HashMap<String, String> members = lC.memberInquiry();
+	HashMap<String, String> members = null;
 	
 	public boolean checkId(String id) {
 		return members.containsKey(id);

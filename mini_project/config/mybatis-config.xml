@@ -20,5 +20,6 @@
   	
   	<mappers>
 		<mapper resource = "SampleMapper.xml"/>
+		<mapper resource = "LoginMapper.xml"/>
 	</mappers>
   </configuration>

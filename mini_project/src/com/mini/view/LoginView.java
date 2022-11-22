@@ -1,21 +1,23 @@
 package com.mini.view;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import com.mini.controller.LoginController;
+import com.mini.dto.CustomerDTO;
 import com.mini.dto.MemberDTO;
 
 public class LoginView {
 	
 	MemberDTO mem;
-	LoginController lC = new LoginController();
+	LoginController loginController = new LoginController();
 	Scanner sc = new Scanner(System.in);
 	
 	SignUpView suV = new SignUpView();
 
 	
-	public MemberDTO loginMain() {
+	public void loginMain() {
 		int num;
 		
 		do{
@@ -32,7 +34,7 @@ public class LoginView {
 			
 			switch(num) {
 			case 1: break;
-			case 2: break;
+			case 2: loginController.checkLogin(inputLoginInfo()); break;
 			case 0:
 				ClearScreen.ClearConsole();
 				System.out.println(" ================ ");
@@ -44,6 +46,22 @@ public class LoginView {
 			}
 		}while(num != 0 && num != 2);
 		
-		return mem;
+	}
+
+
+	private CustomerDTO inputLoginInfo() {
+		
+		String id;
+		String pwd;
+		
+		System.out.println(" ============================ \n");
+		System.out.print("아이디를 입력하세요 : ");
+		id = sc.nextLine();
+		
+		System.out.println(" ============================ \n");
+		System.out.print("패스워드를 입력하세요 : ");
+		pwd = sc.nextLine();
+		
+		return new CustomerDTO(id, pwd);
 	}
 }
