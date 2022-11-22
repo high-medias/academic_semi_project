@@ -19,6 +19,6 @@
   	</environments>
   	
   	<mappers>
-		<mapper resource="mappers/SignUpMapper.xml"/>
+		<mapper resource="SignUpMapper.xml"/>
 	</mappers>
   </configuration>
