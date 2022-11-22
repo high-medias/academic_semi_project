@@ -19,7 +19,7 @@ public class LoginService {
 		
 		boolean checkFlag = false;
 		
-		if(customer != null && customer.getId().equals(id) && customer.getPwd().equals(pwd)) {
+		if(customer.getId() != null && customer.getPwd().equals(pwd)) {
 			checkFlag = true;
 		} else {
 			checkFlag = false;
