@@ -34,6 +34,10 @@ public class PurchaseDAO {
 		return sqlSession.insert("PurchaseMapper.purchaseProduct" , product);
 	}
 
+	public int modifyCount(SqlSession sqlSession, ProductDTO product) {
+		return sqlSession.insert("PurchaseMapper.modifyCount" , product);
+	}
+
 
 
 }

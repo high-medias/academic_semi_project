@@ -42,4 +42,15 @@
 		
 	</insert>
 	
+	<update id="modifyCount" parameterType="com.mini.dto.ProductDTO"> 
+	
+		UPDATE
+				MINI_PRODUCT A
+		   SET  A.PRODUCT_COUNT =(SELECT B.PRODUCT_COUNT
+                                     FROM MINI_PRODUCT B
+                                   WHERE B.PRODUCT_NO = '${ no }') - '${ count }'
+         WHERE  PRODUCT_NO = '${ no }'
+	</update>
+	
+	
 </mapper>

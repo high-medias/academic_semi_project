@@ -94,6 +94,17 @@ public class PurchaseService {
 			sqlSession.rollback();
 		}
 		
+		result = purchaseDAO.modifyCount(sqlSession, product);
+		
+		
+		if(result > 0) {
+			
+			sqlSession.commit();
+		} else {
+			
+			sqlSession.rollback();
+		}
+		
 	
 		sqlSession.close();
 		
