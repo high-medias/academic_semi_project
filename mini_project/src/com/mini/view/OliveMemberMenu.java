@@ -42,8 +42,8 @@ public class OliveMemberMenu {
 			System.out.println();
 			
 			switch(num) {
-			case 1: ;break;
-			case 2:  break;
+			case 1: break;
+			case 2: break;
 			case 0:
 				ClearScreen.ClearConsole();
 				System.out.println(" ================ ");

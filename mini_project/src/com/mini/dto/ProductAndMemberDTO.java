@@ -17,6 +17,16 @@ public class ProductAndMemberDTO {
 	}
 
 
+	@Override
+	public String toString() {
+		return "ProductAndMemberDTO [proNo=" + proNo
+				+ ", name=" + name
+				+ ", count=" + count
+				+ ", price=" + price
+				+ "]";
+	}
+
+
 	
 	
 	
