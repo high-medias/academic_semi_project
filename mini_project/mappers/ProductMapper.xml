@@ -5,94 +5,65 @@
   
 <mapper namespace="ProductMapper">
 
-    <resultMap type="com.mini.dto.ProductDTO" id="productResultMap">
+	<resultMap type="com.mini.dto.ProductDTO" id="ProductResultMap">
     	<id property="no" column="PRODUCT_NO"/>
-    	<result property="category" column="PRODUCT_CATEGORY"/>
     	<result property="name" column="PRODUCT_NAME"/>
+    	<result property="category" column="PRODUCT_CATEGORY"/>
     	<result property="price" column="PRODUCT_PRICE"/>
     	<result property="count" column="PRODUCT_COUNT"/>
     	<result property="memNo" column="MEM_NO"/>
-    	
-    <!-- 첫째 -->
     </resultMap>
 
-
-
-   <resultMap type="com.mini.dto.ProductAndMemberDTO" id="sellerResultMap">
-    	<id property="proNo" column="PRODUCT_NO"/> 
-    	<result property="category" column="PRODUCT_CATEGORY"/>
-    	<result property="name" column="PRODUCT_NAME"/>
-    	<result property="price" column="PRODUCT_PRICE"/>
-    	<result property="count" column="PRODUCT_COUNT"/>
-    	<result property="memNo" column="MEM_NO"/>
+    <select id="selectAllProduct" resultMap="ProductResultMap">
+        SELECT
+               P.PRODUCT_NO
+             , P.PRODUCT_NAME
+             , P.PRODUCT_CATEGORY
+             , P.PRODUCT_PRICE
+             , P.PRODUCT_COUNT
+             , P.MEM_NO
+          FROM MINI_PRODUCT P
+         ORDER BY P.PRODUCT_NO       
+    </select>
+    <!-- 고객이 아닌 직원이 메뉴를 조회하는 것이기에 상품 수량이 0이여도 조회 할 수 있게 WHERE
+    조건절은 뺐습니다. -->
     
-    
-    			<association property="memberDTO" javaType="com.mini.dto.MemberDTO">
-	   			<id property="no" column="MEM_NO"/>
-		   		<result property="name" column="MEM_NAME"/>
-	   			</association> 
-    	
-    	
-    </resultMap>
+    <insert id="insertProduct" parameterType="com.mini.dto.ProductDTO" >
+        INSERT
+          INTO MINI_PRODUCT P
+          (
+           P.MEM_NO
+         , P.PRODUCT_NO
+         , P.PRODUCT_NAME
+         , P.PRODUCT_CATEGORY
+         , P.PRODUCT_PRICE
+         , P.PRODUCT_COUNT  
+          )
+          VALUES
+          (
+            #{ memNo }
+          , #{ no }    
+          , #{ name }    
+          , #{ category }    
+          , #{ price }    
+          , #{ count }    
+          )
+    </insert>
 
+	<update id="modifyProduct" parameterType="com.mini.dto.ProductDTO">
+  		UPDATE
+  		       MINI_PRODUCT P
+  		   SET P.MEM_NO = #{ memNo }
+  		     , P.PRODUCT_NAME = #{ name }
+  		     , P.PRODUCT_PRICE = #{ price }
+  		     , P.PRODUCT_CATEGORY = #{ category }
+  		 WHERE P.PRODUCT_NO = #{ no }
+  	</update>
 
+	<delete id="deleteProduct" parameterType="string">
+  		DELETE
+  		  FROM MINI_PRODUCT P
+  		 WHERE P.PRODUCT_NO = #{ no }
+  	</delete>
 
-
-
-	<select id="selectAllPurchase" resultMap = "productResultMap">
-		SELECT
-			A.PRODUCT_NO
-		  , A.PRODUCT_CATEGORY
-		  , A.PRODUCT_NAME
-		  , A.PRODUCT_PRICE
-		  , A.PRODUCT_COUNT
-		  , A.MEM_NO
-		FROM MINI_PRODUCT A
-		ORDER BY A.PRODUCT_NO
-	</select>
-	
-	
-		<select id="selectAllCategory"  resultMap = "productResultMap">
-		SELECT
-		
-		   A.PRODUCT_NAME
-		  , A.PRODUCT_PRICE
-		  , A.PRODUCT_COUNT
-		  , A.MEM_NO
-		FROM MINI_PRODUCT A
-	   WHERE A.PRODUCT_CATEGORY = #{ category } 
-	</select>
-	
-	
-	
-	<select id="selectAllSeller"  resultMap = "sellerResultMap">
-		SELECT
-			A.PRODUCT_NO
-          , M.MEM_NAME
-          , A.PRODUCT_NAME
-		  , A.PRODUCT_PRICE
-		  , A.PRODUCT_COUNT
-		FROM MINI_PRODUCT A
-        JOIN MINI_MEMBER M ON(A.MEM_NO = M.MEM_NO)
-        WHERE M.MEM_NAME = #{ name } 
-	</select>
-	
-
-
-	<select id="purchaseProduct"  resultMap = "productResultMap">
-		
-		
-		SELECT
-			A.PRODUCT_NO
-          , M.MEM_NAME
-          , A.PRODUCT_NAME
-		  , A.PRODUCT_PRICE
-		  , A.PRODUCT_COUNT
-		FROM MINI_PRODUCT A
-        JOIN MINI_MEMBER M ON(A.MEM_NO = M.MEM_NO)
-        WHERE M.MEM_NAME = #{ name } 
-	</select>
-
-
-
-</mapper>
+</mapper>  

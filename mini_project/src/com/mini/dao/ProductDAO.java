@@ -10,16 +10,21 @@ public class ProductDAO {
 
 	public List<ProductDTO> selectAllProduct(SqlSession sqlSession) {
 		
-		return sqlSession.selectList("SampleMapper.selectAllMenu");
+		return sqlSession.selectList("selectAllProduct");
 	}
 
 	public int insertProduct(SqlSession sqlSession, ProductDTO pro) {
 		
-		return sqlSession.insert("SampleMapper.insertProduct", pro);
+		return sqlSession.insert("insertProduct", pro);
 	}
    
 	public int modifyProduct(SqlSession sqlSession, ProductDTO pro) {
 		
-		return sqlSession.insert("SampleMapper.modifyProduct", pro);
+		return sqlSession.insert("ProductMapper.modifyProduct", pro);
+	}
+
+	public int deleteProduct(SqlSession sqlSession, String code) {
+
+		return sqlSession.delete("deleteProduct", code);
 	}
 }

@@ -15,6 +15,7 @@ public class OliveMemberMenu {
 	
 	CustomerManaging customerManaging = new CustomerManaging();
 	SignUpView signUpView = new SignUpView();
+	ProductView productView = new ProductView();
 	
 	private int num;
 	
@@ -27,10 +28,7 @@ public class OliveMemberMenu {
 	        
 			System.out.println(" ====== Olive 관리자 메인 메뉴 ======");
 			
-			//MJ
-			System.out.println("1. 상품 관리 메뉴"); // 여기는 일단 패스!
-			// KNY
-			System.out.println("2. 회원 관리 메뉴");
+			System.out.println("1. 상품 관리 메뉴");
 			System.out.println("0. 로그아웃");
 			System.out.println(" =========================== \n");
 			
@@ -42,13 +40,9 @@ public class OliveMemberMenu {
 			System.out.println();
 			
 			switch(num) {
-			case 1: break;
-			case 2: break;
+			case 1: productView.ProductMangagement(); break;
 			case 0:
 				ClearScreen.ClearConsole();
-				System.out.println(" ================ ");
-				System.out.println("프로그램을 종료합니다.");
-				System.out.println(" ================ ");
 				break;
 			}
 			

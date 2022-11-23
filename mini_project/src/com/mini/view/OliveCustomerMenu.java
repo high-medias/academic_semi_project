@@ -52,10 +52,6 @@ public class OliveCustomerMenu {
 				// JE
 				case 3: listAndRefund.ListAndRefundMainView(cus); break;
 				case 0:
-
-					System.out.println(" ================ ");
-					System.out.println("프로그램을 종료합니다.");
-					System.out.println(" ================ ");
 					flag = 0;
 					break;
 			}

@@ -37,10 +37,6 @@ public class LoginView {
 			case 2: loginController.checkLogin(MemberinputLoginInfo()); break;
 			case 0:
 				ClearScreen.ClearConsole();
-				System.out.println(" ================ ");
-				System.out.println("프로그램을 종료합니다.");
-				System.out.println(" ================ ");
-				System.out.println();
 				break;
 			}
 		}while(num != 0);

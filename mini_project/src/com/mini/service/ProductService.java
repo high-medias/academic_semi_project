@@ -1,5 +1,6 @@
 package com.mini.service;
 
+
 import static com.mini.common.Template.getSqlSession;
 
 import java.util.List;
@@ -54,7 +55,7 @@ public class ProductService {
 		
 		SqlSession sqlSession = getSqlSession();
 		
-		int result = proDAO.insertProduct(sqlSession, pro);
+		int result = proDAO.modifyProduct(sqlSession, pro);
 		
 		if(result > 0) {
 			
@@ -69,6 +70,24 @@ public class ProductService {
 				
 	}
 	
+     public boolean deleteProduct(String code) {
+		
+		SqlSession sqlSession = getSqlSession();
+		
+		int result = proDAO.deleteProduct(sqlSession, code);
+		
+		if(result > 0) {
+			
+			sqlSession.commit();
+		} else {
+			
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result > 0? true: false;
+	}
 	
 	
 }
