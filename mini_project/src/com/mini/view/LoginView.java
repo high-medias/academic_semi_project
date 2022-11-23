@@ -22,10 +22,9 @@ public class LoginView {
 		
 		do{
 			System.out.println(" ====== 로그인 화면 메뉴 ======");
-			System.out.println("1. 회원 가입");
-			System.out.println("2. 고객 로그인");
-			System.out.println("3. 직원 로그인");
-			System.out.println("0. 프로그램 종료");
+			System.out.println("1. 고객 로그인");
+			System.out.println("2. 직원 로그인");
+			System.out.println("0. 이전 페이지로");
 			System.out.println(" ============================ \n");
 			
 			System.out.print("메뉴를 입력하세요 : ");
@@ -34,9 +33,8 @@ public class LoginView {
 			System.out.println();
 			
 			switch(num) {
-			case 1: break;
-			case 2: loginController.checkLogin(CustomerinputLoginInfo()); break;
-			case 3: loginController.checkLogin(MemberinputLoginInfo()); break;
+			case 1: loginController.checkLogin(CustomerinputLoginInfo()); break;
+			case 2: loginController.checkLogin(MemberinputLoginInfo()); break;
 			case 0:
 				ClearScreen.ClearConsole();
 				System.out.println(" ================ ");
