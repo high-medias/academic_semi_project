@@ -1,9 +1,13 @@
 package com.mini.controller;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import com.mini.dto.MemberDTO;
+import com.mini.dto.ProductAndMemberDTO;
 import com.mini.dto.ProductDTO;
+import com.mini.service.PurchaseService;
 
 public class PurchaseController {
 	
@@ -101,10 +105,10 @@ public class PurchaseController {
 		
 		if(purchaseService.purchaseProduct(product)) {
 			
-			printResult.printSuccessMessage("insert");
+			printResult.printSuccessMessage("purchase");
 		} else {
 			
-			printResult.printErrorMessage("insert");
+			printResult.printErrorMessage("insertFail");
 		}
 		
 		
