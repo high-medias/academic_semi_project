@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-<mapper namespace="insertCustomer">
 
+
+<mapper namespace="insertCustomer">
    <insert id="insertCustomer" parameterType="com.mini.dto.CustomerDTO">
        INSERT 
          INTO MINI_CUSTOMER
@@ -27,6 +27,29 @@
        )     
    </insert>
    
+   <insert id="insertMember" parameterType="com.mini.dto.MemberDTO">
+      INSERT
+        INTO MINI_MEMBER
+      (
+        MEM_NO
+      , MEM_NAME
+      , MEM_AGE
+      , MEM_GENDER
+      , MEM_POSITION
+      , MEM_PWD
+      , MEM_HIREDATE
+      )
+      VALUES
+      (
+      #{ no }
+      , #{ name }
+      , #{ age }
+      , #{ gender }
+      , #{ position }
+      , #{ pwd }
+      , Sysdate
+      )
+  </insert>
  </mapper>  
 
 

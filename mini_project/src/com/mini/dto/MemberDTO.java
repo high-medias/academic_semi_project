@@ -9,10 +9,9 @@ public class MemberDTO {
 	
 	String no;
 	String name;
-	int age;
+	String age;
 	String gender;
 	String position;
-	Date hireDate;
 	String managerNo;
 	String pwd;
 	
@@ -23,19 +22,17 @@ public class MemberDTO {
 		this.pwd = pwd;
 	}
 	
-	public MemberDTO(String no, String name, int age, 
-			String gender, String position, Date hireDate, 
-			String managerNo) {
+	public MemberDTO(String no, String name, String age, 
+			String gender, String position, String pwd) {
 		super();
 		this.no = no;
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
 		this.position = position;
-		this.hireDate = hireDate;
-		this.managerNo = managerNo;
+		this.pwd = pwd;
 	}
-
+	
 	public String getNo() {
 		return no;
 	}
@@ -52,11 +49,11 @@ public class MemberDTO {
 		this.name = name;
 	}
 
-	public int getAge() {
+	public String getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 
@@ -76,10 +73,6 @@ public class MemberDTO {
 		this.position = position;
 	}
 
-	public Date getHireDate() {
-		return hireDate;
-	}
-
 	public String getPwd() {
 		return pwd;
 	}
@@ -88,9 +81,6 @@ public class MemberDTO {
 		this.pwd = pwd;
 	}
 
-	public void setHireDate(Date hireDate) {
-		this.hireDate = hireDate;
-	}
 
 	public String getManagerNo() {
 		return managerNo;
@@ -107,7 +97,6 @@ public class MemberDTO {
 				+ ", age=" + age
 				+ ", gender=" + gender
 				+ ", position=" + position 
-				+ ", hireDate=" + hireDate
 				+ ", managerNo=" + managerNo + "]";
 	}
 	

@@ -4,52 +4,27 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.mini.dto.CustomerDTO;
+import com.mini.dto.MemberDTO;
 import com.mini.service.CustomerService;
+import com.mini.service.MemberService;
 
 public class SignUpController {
 	
 	
 	private PrintResult printResult = new PrintResult();
 	private CustomerService customerService  = new CustomerService();
+	private MemberService memberService = new MemberService();
 	
 	
 	LoginController lC = new LoginController();
-<<<<<<< HEAD
-	HashMap<String, String> members = lC.memberInquiry();
-//	private Object customerService;
-=======
 	HashMap<String, String> members = null;
->>>>>>> refs/heads/master
-	
-	public boolean checkId(String id) {
-		return members.containsKey(id);
-		
-	}
-	
-	public boolean checkPwd(String pwd1, String pwd2) {
-		
-		// 1 : 패스워드 같음 ok,  0 : 패스워드가 다름 no
-		return pwd1.equals(pwd2);
-	}
-	
-	public void insertMember(String id, String pwd) {
-		try {
-			OutputStream out = new FileOutputStream("./src/member.txt", true);
-			
-			try {
-				out.write(("\n" + id + " " + pwd).getBytes());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
+
 
 	public void registNewCustomer(Map<String, String> parameter) {
 		
@@ -65,6 +40,7 @@ public class SignUpController {
 	    cusList.setName(name);
 	    cusList.setGender(gender);
 	    cusList.setPhoneNumber(phoneNumber);
+	    cusList.setGrade("1");
 	    
 	    if(customerService.insertCustomer(cusList)) {
    
@@ -74,7 +50,33 @@ public class SignUpController {
 	    	
 	    	printResult.printErrorMessage("insert");
 	    }
-	    
 	}
-
+	
+	public void registNewMember(Map<String, String> parameter) {
+		
+		String no = parameter.get("no");
+		String name = parameter.get("name");
+		String age = parameter.get("age");
+		String gender = parameter.get("gender");
+		String position = parameter.get("position");
+		String managerNo = parameter.get("managerNo");
+		String pwd = parameter.get("pwd");
+		
+		MemberDTO memList = new MemberDTO();
+		memList.setNo(no);
+		memList.setName(name);
+		memList.setAge(age);
+		memList.setGender(gender);
+		memList.setPosition(position);
+		memList.setPwd(pwd);
+		
+	    if(memberService.insertMember(memList)) {
+	    	
+	    	printResult.printSuccessMessage("insert");
+	   
+	    } else {
+	    	
+	    	printResult.printErrorMessage("insert");
+	    }	
+	}
 }
