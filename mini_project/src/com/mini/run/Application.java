@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.mini.dto.MemberDTO;
 import com.mini.dto.ProductDTO;
 import com.mini.dto.CustomerDTO;
+import com.mini.view.MemSignUpView;
 import com.mini.view.OliveCustomerMenu;
 import com.mini.view.OliveMemberMenu;
 import com.mini.view.SignUpView;
@@ -24,7 +25,8 @@ public class Application {
 		
 		OliveMemberMenu oliveMemberMenu = new OliveMemberMenu();
 		OliveCustomerMenu oliveCustomerMenu = new OliveCustomerMenu();
-		new SignUpView().singUpMainView();
+//		new SignUpView().singUpMainView();
+		new MemSignUpView().memSignUpMainView();
 		
 		// Mybatis Sample code 입니다
 		// Service 객체에서 아래와 같이 사용하시면 됩니다

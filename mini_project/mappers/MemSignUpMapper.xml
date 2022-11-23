@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="insertMember">
+  
+  <insert id="insertMember" parameterType="com.mini.dto.MemberDTO">
+      INSERT
+        INTO MINI_MEMBER
+      (
+        MEM_NO
+      , MEM_NAME
+      , MEM_AGE
+      , MEM_GENDER
+      , MEM_POSITION
+      , MEM_HIREDATE
+      , MEM_MANAGER
+      )
+      VALUES
+      (
+      , #{ no }
+      , #{ name }
+      , #{ age }
+      , #{ gender }
+      , #{ position }
+      , sysdate 
+      , #{ managerNo }
+      )
+      
+        
+        
+  
+  </insert>
+</mapper>
