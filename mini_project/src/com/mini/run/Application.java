@@ -9,7 +9,11 @@ import org.apache.ibatis.session.SqlSession;
 import com.mini.dto.MemberDTO;
 import com.mini.dto.ProductDTO;
 import com.mini.dto.CustomerDTO;
+<<<<<<< HEAD
 import com.mini.view.MemSignUpView;
+=======
+import com.mini.view.LoginView;
+>>>>>>> refs/heads/master
 import com.mini.view.OliveCustomerMenu;
 import com.mini.view.OliveMemberMenu;
 import com.mini.view.SignUpView;
@@ -18,6 +22,7 @@ import com.mini.view.mainView;
 public class Application {
 	public static void main(String[] args) {
 		
+<<<<<<< HEAD
 		//회원 가입 페이지 생성 후 
 		// 주석을 해제할 예정
 		//mainView mv = new mainView();
@@ -69,5 +74,9 @@ public class Application {
 		// oliveCustomerMenu.OliveMainMenu(cus);
 		
 		
+=======
+		mainView mv = new mainView();
+		mv.mainViews();		
+>>>>>>> refs/heads/master
 	}
 }

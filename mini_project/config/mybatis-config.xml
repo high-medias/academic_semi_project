@@ -19,6 +19,12 @@
   	</environments>
   	
   	<mappers>
+<<<<<<< HEAD
 		<mapper resource="SignUpMapper.xml"/>
+=======
+		<mapper resource = "SampleMapper.xml"/>
+		<mapper resource = "LoginMapper.xml"/>
+		<mapper resource = "BucketMapper.xml"/>
+>>>>>>> refs/heads/master
 	</mappers>
   </configuration>

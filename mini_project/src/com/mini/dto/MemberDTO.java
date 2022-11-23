@@ -14,8 +14,14 @@ public class MemberDTO {
 	String position;
 	Date hireDate;
 	String managerNo;
+	String pwd;
 	
 	public MemberDTO() {}
+	
+	public MemberDTO(String no, String pwd) {
+		this.no = no;
+		this.pwd = pwd;
+	}
 	
 	public MemberDTO(String no, String name, int age, 
 			String gender, String position, Date hireDate, 
@@ -72,6 +78,14 @@ public class MemberDTO {
 
 	public Date getHireDate() {
 		return hireDate;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 
 	public void setHireDate(Date hireDate) {

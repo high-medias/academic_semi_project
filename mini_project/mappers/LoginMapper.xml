@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="LoginMapper.xml">
+
+	<resultMap type="com.mini.dto.CustomerDTO" id="CustomerDTOIdPWD">
+		<id property="id" column="CUS_ID"/>
+		<result property="pwd" column="CUS_PWD"/>
+	</resultMap>
+	
+	<resultMap type="com.mini.dto.MemberDTO" id="MemberDTOIdPWD">
+		<id property="no" column="Mem_No"/>
+		<result property="pwd" column="Mem_PWD"/>
+	</resultMap>
+		
+	<select id="CustomerIdPwd" parameterType="string" resultMap = "CustomerDTOIdPWD">
+		Select
+			A.CUS_ID,
+			A.CUS_PWD
+		From MINI_CUSTOMER A
+		WHERE CUS_ID = #{ID}
+	</select>
+	
+	<select id="MemberIdPwd" parameterType="string" resultMap = "MemberDTOIdPWD">
+		Select
+			A.MEM_NO,
+			A.MEM_PWD
+		From MINI_MEMBER A
+		WHERE MEM_NO = #{ID}
+	</select>	
+</mapper>

@@ -1,39 +1,68 @@
 package com.mini.controller;
 
 import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
+import org.apache.ibatis.session.SqlSession;
+
+import com.mini.dto.CustomerDTO;
+import com.mini.dto.MemberDTO;
+import com.mini.service.LoginService;
+import com.mini.view.ClearScreen;
+import com.mini.view.OliveCustomerMenu;
+import com.mini.view.OliveMemberMenu;
+
 public class LoginController {
 
-	public HashMap<String, String> memberInquiry() {
+	LoginService loginService = new LoginService();
+	
+	public void checkLogin(CustomerDTO customerDTO) {
 		
-		HashMap<String, String> members = new HashMap<>();
+		String id = customerDTO.getId();
+		String pwd = customerDTO.getPwd();
+		
+		CustomerDTO cus = loginService.CustomerCheckLogin(id, pwd);
+		
+		if(cus != null && cus.getId().equals(id) && cus.getPwd().equals(pwd)) {
+			System.out.println("@@@ 로그인 성공 @@@");
+			OliveCustomerMenu oliveCustomerMenu = new OliveCustomerMenu();
+			oliveCustomerMenu.OliveMainMenu(cus);
+			
+		} else {
+			ClearScreen.ClearConsole();
+			System.out.println(" ================= ");
+			System.out.println(" ====로그인 실패====");
+			System.out.println(" 프로그램을 종료합니다. ");
+			System.out.println(" ================= ");
+			System.out.println();
+		}
 
-		File file = new File("./src/member.txt");
+	}
+	
+	public void checkLogin(MemberDTO memberDTO) {
 		
-		try {
-		   BufferedReader br = new BufferedReader(new FileReader(file));
-		   String [] str = br.readLine().split("\\s",0);
-		   
-		   while(str != null) {
-			   members.put(str[0], str[1]);
-			   str = br.readLine().split("\\s");
-		   }
-		   
-		   br.close();
-		   } catch (NullPointerException e){ 
-	           e.getStackTrace();
-	       } catch (FileNotFoundException e){ 
-	           e.getStackTrace();
-	       } catch (IOException e){ 
-	           e.getStackTrace();
-	       }
+		String id = memberDTO.getNo();
+		String pwd = memberDTO.getPwd();
 		
-	   	return members;
+		MemberDTO mem = loginService.MemberCheckLogin(id, pwd);
+		
+		if(mem != null && mem.getNo().equals(id) && mem.getPwd().equals(pwd)) {
+			System.out.println("@@@ 로그인 성공 @@@");
+			OliveMemberMenu oliveMemberMenu = new OliveMemberMenu();
+			oliveMemberMenu.OliveMainMenu(mem);
+		} else {
+			ClearScreen.ClearConsole();
+			System.out.println(" ================= ");
+			System.out.println(" ====로그인 실패====");
+			System.out.println(" 프로그램을 종료합니다. ");
+			System.out.println(" ================= ");
+			System.out.println();
+		}
 	}
 	
 }

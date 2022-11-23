@@ -30,10 +30,10 @@ public class OliveMemberMenu {
 			// JS --> 여기 추후 클래스 이동 예정
 			System.out.println("1. 회원가입 및 로그인 메뉴");
 			//MJ
-			System.out.println("2. 고객 메뉴"); // 여기는 일단 패스!
+			System.out.println("2. 상품 관리 메뉴"); // 여기는 일단 패스!
 			// KNY
 			System.out.println("3. 회원 관리 메뉴");
-			System.out.println("0. 프로그램 종료");
+			System.out.println("0. 로그아웃");
 			System.out.println(" =========================== \n");
 			
 			System.out.print("메뉴를 입력하세요 : ");

@@ -18,8 +18,12 @@ public class SignUpController {
 	
 	
 	LoginController lC = new LoginController();
+<<<<<<< HEAD
 	HashMap<String, String> members = lC.memberInquiry();
 //	private Object customerService;
+=======
+	HashMap<String, String> members = null;
+>>>>>>> refs/heads/master
 	
 	public boolean checkId(String id) {
 		return members.containsKey(id);

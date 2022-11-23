@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BucketMapper.xml">
+
+	<resultMap type="com.mini.dto.BucketDTO" id="BucketSelect">
+		<id property="bucket_no" column="bucket_no"/>
+		<result property="cus_id" column="CUS_id"/>
+		<result property="product_no" column="product_NAME"/>
+		<result property="bucket_count" column="BUCKET_COUNT"/>
+	</resultMap>
+	
+	<resultMap type="com.mini.dto.BucketDTO" id="BucketTotalPrice">
+		<id property="bucket_no" column="bucket_no"/>
+		<result property="cus_id" column="CUS_id"/>
+		<result property="product_no" column="product_NAME"/>
+		<result property="bucket_count" column="BUCKET_COUNT"/>
+		<result property="price" column="PRODUCT_PRICE"/>
+	</resultMap>
+
+    <select id="SelectBucket" parameterType="string" resultMap="BucketSelect">
+        SELECT 
+        	mb.bucket_no,
+    		mb.CUS_id,
+    		mp.product_NAME,
+    		mb.BUCKET_COUNT 
+        FROM MINI_BUCKET mb
+		INNER JOIN MINI_PRODUCT mp 
+		ON mb.PRODUCT_NO  = mp.PRODUCT_NO 
+        WHERE mb.CUS_ID = #{cus_id}
+        ORDER BY bucket_no
+    </select>
+    
+    <select id="BucketTotalPrice" parameterType="string" resultMap="BucketTotalPrice">
+		SELECT 
+			mb.bucket_no,
+    		mb.CUS_id,
+    		mp.PRODUCT_NAME ,
+    		mb.BUCKET_COUNT,
+    		mp.PRODUCT_PRICE 
+        FROM MINI_BUCKET mb
+		INNER JOIN MINI_PRODUCT mp 
+		ON mb.PRODUCT_NO  = mp.PRODUCT_NO 
+		WHERE mb.CUS_ID = #{cus_id}
+		ORDER BY bucket_no
+    </select>
+
+    <delete id="DeleteByProductNo" parameterType="string">
+        DELETE FROM MINI_BUCKET 
+        WHERE Bucket_no = #{product_no}
+    </delete>
+
+    <delete id="DeleteAllBucket" parameterType="string">
+        DELETE FROM MINI_BUCKET WHERE CUS_ID = #{cus_id}
+    </delete>
+
+</mapper>

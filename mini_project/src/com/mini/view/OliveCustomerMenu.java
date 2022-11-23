@@ -34,7 +34,7 @@ public class OliveCustomerMenu {
 			System.out.println("2. 장바구니 메뉴");
 			// JE
 			System.out.println("3. 나의 구매목록 / 환불 관련 메뉴");
-			System.out.println("0. 프로그램 종료");
+			System.out.println("0. 로그아웃");
 			System.out.println(" =========================== \n");
 			
 			System.out.print("메뉴를 입력하세요 : ");
@@ -44,12 +44,6 @@ public class OliveCustomerMenu {
 			sc.nextLine();
 			System.out.println();
 			
-			/*
-			 * 
-			 * 각 View에 들어가시면 구현해야할 기능에 대한 내용을 잡아 놓았습니다
-			 * 이해 안되시면 톡주시면 말씀드리겠습니다.
-			 *  고생하십쇼! :)
-			 */
 				switch(num) {
 				// HS
 				case 1: purchaseView.purchaseMainView(cus); break;
