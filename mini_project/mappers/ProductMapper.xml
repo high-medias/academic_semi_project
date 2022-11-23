@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ProductMapper">
+
+    <resultMap type="com.mini.dto.ProductDTO" id="productResultMap">
+    	<id property="no" column="PRODUCT_NO"/>
+    	<result property="category" column="PRODUCT_CATEGORY"/>
+    	<result property="name" column="PRODUCT_NAME"/>
+    	<result property="price" column="PRODUCT_PRICE"/>
+    	<result property="count" column="PRODUCT_COUNT"/>
+    	<result property="memNo" column="MEM_NO"/>
+    	
+    <!-- 첫째 -->
+    </resultMap>
+
+
+
+   <resultMap type="com.mini.dto.ProductAndMemberDTO" id="sellerResultMap">
+    	<id property="proNo" column="PRODUCT_NO"/> 
+    	<result property="category" column="PRODUCT_CATEGORY"/>
+    	<result property="name" column="PRODUCT_NAME"/>
+    	<result property="price" column="PRODUCT_PRICE"/>
+    	<result property="count" column="PRODUCT_COUNT"/>
+    	<result property="memNo" column="MEM_NO"/>
+    
+    
+    			<association property="memberDTO" javaType="com.mini.dto.MemberDTO">
+	   			<id property="no" column="MEM_NO"/>
+		   		<result property="name" column="MEM_NAME"/>
+	   			</association> 
+    	
+    	
+    </resultMap>
+
+
+
+
+
+	<select id="selectAllPurchase" resultMap = "productResultMap">
+		SELECT
+			A.PRODUCT_NO
+		  , A.PRODUCT_CATEGORY
+		  , A.PRODUCT_NAME
+		  , A.PRODUCT_PRICE
+		  , A.PRODUCT_COUNT
+		  , A.MEM_NO
+		FROM MINI_PRODUCT A
+		ORDER BY A.PRODUCT_NO
+	</select>
+	
+	
+		<select id="selectAllCategory"  resultMap = "productResultMap">
+		SELECT
+		
+		   A.PRODUCT_NAME
+		  , A.PRODUCT_PRICE
+		  , A.PRODUCT_COUNT
+		  , A.MEM_NO
+		FROM MINI_PRODUCT A
+	   WHERE A.PRODUCT_CATEGORY = #{ category } 
+	</select>
+	
+	
+	
+	<select id="selectAllSeller"  resultMap = "sellerResultMap">
+		SELECT
+			A.PRODUCT_NO
+          , M.MEM_NAME
+          , A.PRODUCT_NAME
+		  , A.PRODUCT_PRICE
+		  , A.PRODUCT_COUNT
+		FROM MINI_PRODUCT A
+        JOIN MINI_MEMBER M ON(A.MEM_NO = M.MEM_NO)
+        WHERE M.MEM_NAME = #{ name } 
+	</select>
+	
+
+
+	<select id="purchaseProduct"  resultMap = "productResultMap">
+		
+		
+		SELECT
+			A.PRODUCT_NO
+          , M.MEM_NAME
+          , A.PRODUCT_NAME
+		  , A.PRODUCT_PRICE
+		  , A.PRODUCT_COUNT
+		FROM MINI_PRODUCT A
+        JOIN MINI_MEMBER M ON(A.MEM_NO = M.MEM_NO)
+        WHERE M.MEM_NAME = #{ name } 
+	</select>
+
+
+
+</mapper>

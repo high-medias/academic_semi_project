@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="PurchaseMapper">
+
+    <resultMap type="com.mini.dto.ProductDTO" id="purchaseResultMap">
+    	<id property="purchaseNo" column="PURCHASE_NO"/>
+    	<result property="registDate" column="PURCHASE_DATE"/>
+    	<result property="count" column="PURCHASE_COUNT"/>
+    	<result property="deliverDate" column="PURCHASE_DELIVERYDATE"/>
+    	<result property="no" column="PRODUCT_NO"/>
+    	<result property="cusId" column="CUS_ID"/>
+    	<result property="isRefund" column="ISREFUND"/>
+    	
+    </resultMap>
+
+
+	<insert id="purchaseProduct" parameterType="com.mini.dto.ProductDTO">
+		INSERT
+		  INTO MINI_PURCHASE A
+		(
+		 A.PURCHASE_NO
+		,A.PURCHASE_DATE
+		,A.PURCHASE_COUNT
+        ,A.PURCHASE_DELIVERYDATE
+		,A.PRODUCT_NO
+		,A.CUS_ID
+		,A.ISREFUND
+		)
+		VALUES
+		(
+		   SEQ_PURCHASE_NO.NEXTVAL
+		   ,SYSDATE
+		   ,'${ count }'
+		   ,SYSDATE + 5
+		   ,'${ no }'
+		   ,'${ cusId }' 
+		   , 'N'
+		)
+		
+	</insert>
+	
+</mapper>

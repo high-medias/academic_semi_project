@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.greedy.purchase.mapper.xml.DynamicPurchaseMapper">
+ 
+     <resultMap type="com.mini.dto.ProductDTO" id="productResultMap">
+    	<id property="no" column="PRODUCT_NO"/>
+    	<result property="category" column="PRODUCT_CATEGORY"/>
+    	<result property="name" column="PRODUCT_NAME"/>
+    	<result property="price" column="PRODUCT_PRICE"/>
+    	<result property="count" column="PRODUCT_COUNT"/>
+    	<result property="memNo" column="MEM_NO"/>
+    	
+    <!-- 첫째 -->
+    </resultMap>
+ 
+ 	<select id="selectAllPrice" parameterType="hashmap" resultMap ="productResultMap">
+		SELECT
+			A.PRODUCT_NO
+		  , A.PRODUCT_CATEGORY
+		  , A.PRODUCT_NAME
+		  , A.PRODUCT_PRICE
+		  , A.PRODUCT_COUNT
+		  , A.MEM_NO
+		FROM MINI_PRODUCT A
+		where 1=1
+		 <if test="price gte 0 and price lte 10000">
+		<![CDATA[
+ 	    WHERE A.PRODUCT_PRICE < #{ price }
+ 	    ]]>
+ 	    </if>
+ 	     <if test="price gt 10000 and price lte 20000">
+ 	       AND A.PRODUCT_PRICE BETWEEN 10000 AND #{ price }
+ 	     </if>
+ 	     <if test="price gt 20000 and price lte 30000">
+ 	       AND A.PRODUCT_PRICE BETWEEN 20000 AND #{ price }
+ 	     </if>
+ 	     <if test="price gt 30000">
+ 	       AND A.PRODUCT_PRICE BETWEEN 30000 AND #{ price }
+ 	     </if>
+ 		 ORDER BY A.PRODUCT_NO
+	</select>
+ 
+ 
+ 
+ 
+  </mapper>

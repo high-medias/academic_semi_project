@@ -25,6 +25,9 @@
 		<mapper resource = "SampleMapper.xml"/>
 		<mapper resource = "LoginMapper.xml"/>
 		<mapper resource = "BucketMapper.xml"/>
+		<mapper resource = "ProductMapper.xml"/>
+  		<mapper resource = "PurchaseMapper.xml"/>
+  		<package name = "com.greedy.purchase.mapper.xml"/>
 >>>>>>> refs/heads/master
 	</mappers>
   </configuration>

@@ -4,17 +4,21 @@ import java.util.Date;
 
 public class ProductDTO {
 
-	String no;
-	String name;
-	String category;
-	int price;
-	int count;
-	Date registDate;
-	String memNo;
+	private String no;
+	private String name;
+	private String category;
+	private int price;
+	private int count;
+	private Date registDate;
+	private Date deliverDate;
+	private String memNo;
+	private String purchaseNo;
+	private String cusId;
 	
 	public ProductDTO() {}
-	
-	public ProductDTO(String no, String name, String category, int price, int count, Date registDate, String memNo) {
+
+	public ProductDTO(String no, String name, String category, int price, int count, Date registDate, Date deliverDate,
+			String memNo, String purchaseNo, String cusId) {
 		super();
 		this.no = no;
 		this.name = name;
@@ -22,7 +26,10 @@ public class ProductDTO {
 		this.price = price;
 		this.count = count;
 		this.registDate = registDate;
+		this.deliverDate = deliverDate;
 		this.memNo = memNo;
+		this.purchaseNo = purchaseNo;
+		this.cusId = cusId;
 	}
 
 	public String getNo() {
@@ -73,6 +80,14 @@ public class ProductDTO {
 		this.registDate = registDate;
 	}
 
+	public Date getDeliverDate() {
+		return deliverDate;
+	}
+
+	public void setDeliverDate(Date deliverDate) {
+		this.deliverDate = deliverDate;
+	}
+
 	public String getMemNo() {
 		return memNo;
 	}
@@ -81,16 +96,31 @@ public class ProductDTO {
 		this.memNo = memNo;
 	}
 
+	public String getPurchaseNo() {
+		return purchaseNo;
+	}
+
+	public void setPurchaseNo(String purchaseNo) {
+		this.purchaseNo = purchaseNo;
+	}
+
+	public String getCusId() {
+		return cusId;
+	}
+
+	public void setCusId(String cusId) {
+		this.cusId = cusId;
+	}
+
 	@Override
 	public String toString() {
-		return "ProductDTO [no=" + no
-				+ ", name=" + name
-				+ ", category=" + category
-				+ ", price=" + price
-				+ ", count=" + count
-				+ ", registDate=" + registDate
-				+ ", memNo=" + memNo + "]";
+		return "ProductDTO [no=" + no + ", name=" + name + ", category=" + category + ", price=" + price + ", count="
+				+ count + ", registDate=" + registDate + ", deliverDate=" + deliverDate + ", memNo=" + memNo
+				+ ", purchaseNo=" + purchaseNo + ", cusId=" + cusId + "]";
 	}
+
+	
+	
 	
 	
 

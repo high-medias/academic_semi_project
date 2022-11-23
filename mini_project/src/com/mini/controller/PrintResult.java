@@ -21,6 +21,28 @@ public class PrintResult {
 		}
 	}
 	
+	
+	//구매 조회 HS
+	public void printProductList(List<ProductDTO> pList) {
+		for(ProductDTO Product : pList) {
+			System.out.println(Product);
+		}
+	}
+	
+	
+	//관리자 조회 HS
+	public void printProductList2(List<ProductAndMemberDTO> pmList) {
+		for(ProductAndMemberDTO Product : pmList) {
+			System.out.println(Product);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
 	/*
 	public void printMenu(MenuDTO menu) {
 		System.out.println(menu);
@@ -31,6 +53,7 @@ public class PrintResult {
 		
 		String successMessage = "";
 		switch(successCode) {
+			case "purchase" : successMessage = "구매 완료 했습니다."; break; //HS
 			case "insert" : successMessage = "신규 회원 등록에 성공하셨습니다."; break;
 			case "update" : successMessage = "회원 정보 수정에 성공하셨습니다."; break;
 			case "delete" : successMessage = "회원 삭제에 성공하셨습니다."; break;
